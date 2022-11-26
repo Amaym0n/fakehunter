@@ -15,9 +15,9 @@ def start_application() -> FastAPI:
     return app
 
 
-app = start_application()
+App = start_application()
 
 
-@app.get(path='/hello')
+@App.get(path='/hello')
 def hello_api():
     return {'detail': 'Hello World'}
