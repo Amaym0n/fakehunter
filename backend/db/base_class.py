@@ -5,6 +5,8 @@ from sqlalchemy.ext.declarative import as_declarative, declared_attr
 
 @as_declarative()
 class Base:
+    """ Basic methods for tables """
+
     id: Any
     __name__: str
 

@@ -5,6 +5,8 @@ from db.base_class import Base
 
 
 class Job(Base):
+    """ Job table in database """
+
     id = Column(type_=Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
     company_name = Column(String, nullable=False)

@@ -12,6 +12,8 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
 def get_db() -> Generator:
+    """ Get DB for tests or prom using """
+
     try:
         db = SessionLocal()
         yield db

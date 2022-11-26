@@ -5,6 +5,8 @@ from db.base_class import Base
 
 
 class User(Base):
+    """ User table in database """
+
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, unique=True, nullable=False)
     email = Column(String, unique=True, nullable=False, index=True)

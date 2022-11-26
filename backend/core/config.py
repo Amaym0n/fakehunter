@@ -8,6 +8,8 @@ load_dotenv(dotenv_path=env_path)
 
 
 class Settings:
+    """ Class with basic settings """
+
     PROJECT_TITLE = 'JobBoard'
     PROJECT_VERSION = '0.1.0'
 

@@ -6,6 +6,8 @@ pwt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 
 
 class Hasher:
+    """ Class to hash user passwords and verify it """
+
     @staticmethod
     def verify_password(plain_password: Union[str, bytes], hashed_password: Union[str, bytes]) -> bool:
         return pwt_context.verify(secret=plain_password, hash=hashed_password)
