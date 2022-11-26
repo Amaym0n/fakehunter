@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 
-from core.config import setting
+from core.config import settings
 
-app = FastAPI(title=setting.PROJECT_TITLE, version=setting.PROJECT_VERSION)
+app = FastAPI(title=settings.PROJECT_TITLE, version=settings.PROJECT_VERSION)
 
 
 @app.get(path='/hello')
