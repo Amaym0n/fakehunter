@@ -15,4 +15,3 @@ class Hasher:
     @staticmethod
     def get_password_hash(plain_password: Union[str, bytes]) -> str:
         return pwt_context.hash(secret=plain_password)
-
