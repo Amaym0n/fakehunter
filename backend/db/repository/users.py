@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
 from core.hashing import Hasher
-from db.models.users import User
+from db.models.users import Users
 from schemas.users import UserCreate
 
 
@@ -10,7 +10,7 @@ class UserMethods:
 
     @staticmethod
     def create_new_user(user: UserCreate, db: Session):
-        user = User(username=user.username, email=user.email,
+        user = Users(username=user.username, email=user.email,
                     hashed_password=Hasher.get_password_hash(plain_password=user.password), is_active=True,
                     is_superuser=False)
         db.add(instance=user)
