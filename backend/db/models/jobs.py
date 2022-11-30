@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 from db.base_class import Base
 
 
-class Job(Base):
+class Jobs(Base):
     """ Job table in database """
 
     id = Column(type_=Integer, primary_key=True, index=True)
