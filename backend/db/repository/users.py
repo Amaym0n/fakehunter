@@ -9,7 +9,7 @@ class UserMethods:
     """ Class with methods to update/delete/create users """
 
     @staticmethod
-    async def create_new_user(user: UserCreate, db: Session):
+    def create_new_user(user: UserCreate, db: Session):
         user = Users(username=user.username, email=user.email,
                      hashed_password=Hasher.get_password_hash(plain_password=user.password), is_active=True,
                      is_superuser=False)

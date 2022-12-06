@@ -1,4 +1,3 @@
-import uvicorn
 from fastapi import FastAPI
 
 from apis import api_router
@@ -22,7 +21,4 @@ def start_application() -> FastAPI:
     return app
 
 
-if __name__ == '__main__':
-    App = start_application()
-    uvicorn.run(app=App)
-
+App = start_application()
