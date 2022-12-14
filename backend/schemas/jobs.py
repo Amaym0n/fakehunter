@@ -6,7 +6,7 @@ from pydantic import BaseModel
 
 class JobBase(BaseModel):
     title: Optional[str] = None
-    company: Optional[str] = None
+    company_name: Optional[str] = None
     company_url: Optional[str] = None
     location: str = "Remote"
     description: Optional[str] = None
