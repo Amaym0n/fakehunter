@@ -12,7 +12,7 @@ class Jobs(Base):
     company_name = Column(String, nullable=False)
     company_url = Column(String, nullable=True)
     location = Column(String, nullable=False)
-    descriotion = Column(String, nullable=False)
+    description = Column(String, nullable=False)
     date_posted = Column(Date)
     is_active = Column(Boolean(), default=True)
     owner_id = Column(Integer, ForeignKey('users.id'))
