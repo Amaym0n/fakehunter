@@ -14,7 +14,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from db import Base
 from db.session import get_db
-from apis import api_router
+from api_routes import api_router
 
 
 def start_application():

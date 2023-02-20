@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from apis import api_router
+from api_routes import api_router
 from core.config import settings
 from db import Base
 from db.session import engine
