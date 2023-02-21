@@ -11,5 +11,12 @@ def create_new_user(user: UserCreate, db: Session) -> Users:
                  is_superuser=False)
     db.add(instance=user)
     db.commit()
-    db.refresh(instance=user)
     return user
+
+def change_user_to_inactive(user_id: int, db: Session) -> bool:
+    if instance := db.get(Users, user_id):
+        db.delete(instance=instance)
+        db.commit()
+        return True
+    else:
+        return False

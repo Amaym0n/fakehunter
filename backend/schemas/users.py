@@ -11,6 +11,7 @@ class UserCreate(BaseModel):
 
 class ShowUser(BaseModel):
     """ Response for create_user root """
+    id: int
     username: str
     email: EmailStr
     is_active: bool
