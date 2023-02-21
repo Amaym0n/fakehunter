@@ -25,8 +25,7 @@ def start_application() -> FastAPI:
 App = start_application()
 
 
-@App.get(path='')
+# Delete this after testing
+@App.get(path='/', response_class=RedirectResponse)
 def redirecting():
-    url = App.url_path_for("/docs")
-    response = RedirectResponse(url=url)
-    return response
+    return 'docs'
