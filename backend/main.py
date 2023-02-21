@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from starlette.responses import RedirectResponse
 
 from api_routes import api_router
 from core.config import settings
@@ -22,3 +23,10 @@ def start_application() -> FastAPI:
 
 
 App = start_application()
+
+
+@App.get(path='')
+def redirecting():
+    url = App.url_path_for("/docs")
+    response = RedirectResponse(url=url)
+    return response
