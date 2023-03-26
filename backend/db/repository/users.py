@@ -13,6 +13,7 @@ def create_new_user(user: UserCreate, db: Session) -> Users:
     db.commit()
     return user
 
+
 def change_user_to_inactive(user_id: int, db: Session) -> bool:
     if instance := db.get(Users, user_id):
         db.delete(instance=instance)
