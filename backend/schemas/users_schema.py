@@ -1,0 +1,8 @@
+from pydantic import BaseModel, EmailStr
+
+
+class UsersCreate(BaseModel):
+    """ Schema that helps to validate data from create user route """
+    username: str
+    email: EmailStr
+    password: str
