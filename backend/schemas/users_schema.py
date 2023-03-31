@@ -8,6 +8,12 @@ class UsersCreate(BaseModel):
     password: str
 
 
-class ShowUser(UsersCreate):
+class ShowUser(BaseModel):
     """ Schema for responses """
     id: int
+    username: str
+    email: EmailStr
+
+    class Config:
+        orm_mode = True
+

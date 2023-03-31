@@ -14,5 +14,5 @@ class Jobs(Base):
     description = Column(type_=String, nullable=False)
     date_posted = Column(type_=Date)
     is_active = Column(type_=Boolean(), default=True)
-    owner_id = Column(ForeignKey('user_id'), type_=Integer)
+    owner_id = Column(ForeignKey('users.id'), type_=Integer)
     owner = relationship('Users', back_populates='jobs')
