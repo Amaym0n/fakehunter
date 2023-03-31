@@ -8,18 +8,15 @@ load_dotenv(dotenv_path=env_path)
 
 
 class Settings:
-    """ Class with basic settings """
+    PROJECT_TITLE: str = 'FAKEHUNTER'
+    PROJECT_VERSION: str = '0.1.1'
 
-    PROJECT_TITLE = 'JobBoard'
-    PROJECT_VERSION = '0.1.0'
-
-    # Database
-    POSTGRES_USER = os.getenv(key='POSTGRES_USER')
-    POSTGRES_PASSWORD = os.getenv(key='POSTGRES_PASSWORD')
-    POSTGRES_SERVER = os.getenv(key='POSTGRES_SERVER', default='localhost')
-    POSTGRES_PORT = os.getenv(key='POSTGRES_PORT', default='5432')
-    POSTGRES_DB = os.getenv(key='POSTGRES_DB')
-    POSTGRES_CONN_STRING = \
+    POSTGRES_USER: str = os.getenv('POSTGRES_USER')
+    POSTGRES_PASSWORD: str = os.getenv('POSTGRES_PASSWORD')
+    POSTGRES_SERVER: str = os.getenv('POSTGRES_SERVER')
+    POSTGRES_PORT: str = os.getenv('POSTGRES_PORT')
+    POSTGRES_DB: str = os.getenv('POSTGRES_DB')
+    DATABASE_URL: str = \
         f'postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_SERVER}:{POSTGRES_PORT}/{POSTGRES_DB}'
 
 
