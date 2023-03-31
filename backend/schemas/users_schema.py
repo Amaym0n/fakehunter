@@ -6,3 +6,8 @@ class UsersCreate(BaseModel):
     username: str
     email: EmailStr
     password: str
+
+
+class ShowUser(UsersCreate):
+    """ Schema for responses """
+    id: int
