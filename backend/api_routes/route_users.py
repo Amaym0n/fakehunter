@@ -8,7 +8,7 @@ from schemas.users_schema import UsersCreate, ShowUser
 users_router = APIRouter()
 
 
-@users_router.post(path='/users', response_model=ShowUser)
+@users_router.post(path='/user', response_model=ShowUser)
 def create_user(user: UsersCreate, db: Session = Depends(dependency=get_db)) -> Users:
     created_user = create_new_user(user=user, db=db)
     return created_user

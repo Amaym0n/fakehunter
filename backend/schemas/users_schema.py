@@ -1,11 +1,11 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, constr
 
 
 class UsersCreate(BaseModel):
     """ Schema that helps to validate data from create user route """
-    username: str
+    username: constr(min_length=5)
     email: EmailStr
-    password: str
+    password: constr(min_length=5)
 
 
 class ShowUser(BaseModel):
