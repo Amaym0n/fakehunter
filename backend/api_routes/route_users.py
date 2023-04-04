@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
@@ -8,7 +10,7 @@ from schemas.users_schema import UsersCreate, ShowUser
 users_router = APIRouter()
 
 
-@users_router.post(path='/user', response_model=ShowUser)
+@users_router.post(path='/user', response_model=ShowUser, status_code=HTTPStatus.CREATED)
 def create_user(user: UsersCreate, db: Session = Depends(dependency=get_db)) -> Users:
     created_user = create_new_user(user=user, db=db)
     return created_user

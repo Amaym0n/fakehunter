@@ -1,10 +1,12 @@
-from pydantic import BaseModel
-from pydantic.types import date
+from pydantic import BaseModel, AnyUrl
+from pydantic.types import date, constr
 
 
-class JobsCreate(BaseModel):
+class JobCreate(BaseModel):
     """ Schema that helps to validate data from create user route """
-    title: str
+    title: constr(min_length=5)
+    description: constr(min_length=10)
     company_name: str
+    company_url: AnyUrl
     location: str
     date_posted: date
