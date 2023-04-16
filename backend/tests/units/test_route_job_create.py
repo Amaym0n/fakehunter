@@ -12,7 +12,7 @@ from tests.urls import APIUrls
     (HTTPStatus.CREATED, 'Python', 'Python Job', '', 'https://www.python.com/', '', '2023-04-04'),
     (HTTPStatus.UNPROCESSABLE_ENTITY, 'Python', 'Python Job', '', 'www.python.com/', '', '2023-04-04'),
     (HTTPStatus.UNPROCESSABLE_ENTITY, 'Python', 'Python Job', '', 'https://www.python.com/', '', '12.01.11')])
-def test_job_create(client, status_code, title, description, company_url, company_name, location, date_posted):
+def test_route_job_create(client, status_code, title, description, company_url, company_name, location, date_posted):
     data = {'title': title,
             'description': description,
             'company_name': company_name,

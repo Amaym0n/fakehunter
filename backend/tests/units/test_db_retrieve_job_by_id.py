@@ -6,7 +6,7 @@ from schemas.jobs_schema import JobCreate
 
 @pytest.mark.parametrize('title, description, company_name, company_url, location, date_posted',
                          [('Python', 'New Python Job', 'Python', 'https://www.python.com/', 'Moscow', '2023-04-04')])
-def test_retrieve_job_by_id(db_session, title, description, company_name, company_url, location, date_posted):
+def test_db_retrieve_job_by_id(db_session, title, description, company_name, company_url, location, date_posted):
     job = JobCreate(title=title, description=description, company_name=company_name, company_url=company_url,
                     location=location, date_posted=date_posted)
     created_job = create_new_job(job=job, db=db_session)
