@@ -17,7 +17,7 @@ def job_create(job: JobCreate, db: Session = Depends(dependency=get_db)) -> Jobs
 
 
 @jobs_router.get(path='/job', status_code=HTTPStatus.OK)
-def retrieve_job_by_id(job_id: int, db: Session = Depends(dependency=get_db)) -> HTTPException | Jobs:
+def retrieve_job(job_id: int, db: Session = Depends(dependency=get_db)) -> HTTPException | Jobs:
     retrieved_job = retrieve_job_by_id(job_id=job_id, db=db)
     if retrieved_job is None:
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail=f'Job with id {job_id} does not exist')
