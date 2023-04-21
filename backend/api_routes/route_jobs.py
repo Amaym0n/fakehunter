@@ -2,7 +2,7 @@ from http import HTTPStatus
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from pydantic.types import PositiveInt
+from pydantic.types import conint
 from db import get_db, Jobs
 from db.repository.jobs import create_new_job, retrieve_job_by_id
 from schemas.jobs_schema import JobCreate
@@ -17,7 +17,7 @@ def job_create(job: JobCreate, db: Session = Depends(dependency=get_db)) -> Jobs
 
 
 @jobs_router.get(path='/job', status_code=HTTPStatus.OK)
-def retrieve_job(job_id: PositiveInt, db: Session = Depends(dependency=get_db)) -> HTTPException | Jobs:
+def retrieve_job(job_id: conint(gt=0), db: Session = Depends(dependency=get_db)) -> HTTPException | Jobs:
     retrieved_job = retrieve_job_by_id(job_id=job_id, db=db)
     if retrieved_job is None:
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail=f'Job with id {job_id} does not exist')
