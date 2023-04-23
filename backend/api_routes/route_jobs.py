@@ -29,5 +29,5 @@ def delete_job(job_id: conint(gt=0), db: Session = Depends(dependency=get_db)) -
     count_deleted_rows = delete_job_by_id(job_id=job_id, db=db)
     if count_deleted_rows == 0:
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND,
-                            detail=f"Job with id {job_id} does not exist or wasn't deleted")
+                            detail=f"Job with id {job_id} does not exist")
     return count_deleted_rows

@@ -20,4 +20,5 @@ def retrieve_job_by_id(job_id: int, db: Session) -> Jobs:
 
 def delete_job_by_id(job_id: int, db: Session) -> int:
     count_deleted_rows = db.query(Jobs).filter(Jobs.id == job_id).delete()
+    db.commit()
     return count_deleted_rows
