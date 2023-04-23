@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from pydantic.types import conint
 from db import get_db, Jobs
-from db.repository.jobs import create_new_job, retrieve_job_by_id
+from db.repository.jobs import create_new_job, retrieve_job_by_id, delete_job_by_id
 from schemas.jobs_schema import JobCreate
 
 jobs_router = APIRouter()
@@ -22,3 +22,12 @@ def retrieve_job(job_id: conint(gt=0), db: Session = Depends(dependency=get_db))
     if retrieved_job is None:
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND, detail=f'Job with id {job_id} does not exist')
     return retrieved_job
+
+
+@jobs_router.delete(path='/job', status_code=HTTPStatus.NO_CONTENT)
+def delete_job(job_id: conint(gt=0), db: Session = Depends(dependency=get_db)) -> HTTPException | int:
+    count_deleted_rows = delete_job_by_id(job_id=job_id, db=db)
+    if count_deleted_rows == 0:
+        raise HTTPException(status_code=HTTPStatus.NOT_FOUND,
+                            detail=f"Job with id {job_id} does not exist or wasn't deleted")
+    return count_deleted_rows
