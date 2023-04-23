@@ -16,3 +16,8 @@ def create_new_job(job: JobCreate, db: Session) -> Jobs:
 def retrieve_job_by_id(job_id: int, db: Session) -> Jobs:
     job = db.query(Jobs).filter(Jobs.id == job_id).first()
     return job
+
+
+def delete_job_by_id(job_id: int, db: Session) -> int:
+    count_deleted_rows = db.query(Jobs).filter(Jobs.id == job_id).delete()
+    return count_deleted_rows
