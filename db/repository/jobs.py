@@ -4,7 +4,7 @@ from db import Jobs
 from schemas.jobs_schema import JobCreate
 
 
-def create_new_job(job: JobCreate, db: Session) -> Jobs:
+async def create_new_job(job: JobCreate, db: Session) -> Jobs:
     job = Jobs(title=job.title, company_name=job.company_name, location=job.location, date_posted=job.date_posted,
                company_url=job.company_url, description=job.description)
     db.add(instance=job)
@@ -13,12 +13,12 @@ def create_new_job(job: JobCreate, db: Session) -> Jobs:
     return job
 
 
-def retrieve_job_by_id(job_id: int, db: Session) -> Jobs:
+async def retrieve_job_by_id(job_id: int, db: Session) -> Jobs:
     job = db.query(Jobs).filter(Jobs.id == job_id).first()
     return job
 
 
-def delete_job_by_id(job_id: int, db: Session) -> int:
+async def delete_job_by_id(job_id: int, db: Session) -> int:
     count_deleted_rows = db.query(Jobs).filter(Jobs.id == job_id).delete()
     db.commit()
     return count_deleted_rows

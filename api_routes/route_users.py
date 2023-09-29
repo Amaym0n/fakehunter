@@ -11,6 +11,5 @@ users_router = APIRouter()
 
 
 @users_router.post(path='/user', response_model=ShowUser, status_code=HTTPStatus.CREATED)
-def create_user(user: UsersCreate, db: Session = Depends(dependency=get_db)) -> Users:
-    created_user = create_new_user(user=user, db=db)
-    return created_user
+async def create_user(user: UsersCreate, db: Session = Depends(dependency=get_db)) -> Users:
+    return await create_new_user(user=user, db=db)
