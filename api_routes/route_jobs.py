@@ -12,7 +12,7 @@ jobs_router = APIRouter()
 
 
 @jobs_router.post(path='/job/', status_code=HTTPStatus.CREATED)
-async def job_create(job: JobCreate, db: Session = Depends(dependency=get_db)) -> Jobs:
+async def create_job(job: JobCreate, db: Session = Depends(dependency=get_db)) -> Jobs:
     return await create_new_job(job=job, db=db)
 
 
