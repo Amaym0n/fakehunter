@@ -14,5 +14,5 @@ def get_db() -> Generator:
         db.close()
 
 
-engine = create_engine(url=settings.DATABASE_URL)
+engine = create_engine(url=settings.POSTGRES_DSN)
 Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)

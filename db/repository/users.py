@@ -1,3 +1,4 @@
+from pydantic import EmailStr
 from sqlalchemy.orm import Session
 
 from core.hash_client import Hasher
@@ -13,3 +14,14 @@ async def create_new_user(user: UsersCreate, db: Session) -> Users:
     db.commit()
     db.refresh(instance=user)
     return user
+
+
+async def retrieve_user(user_email: EmailStr, db: Session) -> Users:
+    user = db.query(Users).filter(Users.email == user_email).first()
+    return user
+
+
+async def delete_user(user_id: int, db: Session) -> int:
+    count_deleted_rows = db.query(Users).filter(Users.id == user_id).delete()
+    db.commit()
+    return count_deleted_rows
