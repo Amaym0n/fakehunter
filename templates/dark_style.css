@@ -1,0 +1,38 @@
+body.dark-theme {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.login-container.dark-theme {
+    background-color: #333;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+.form-group.dark-theme label {
+    color: #fff;
+}
+
+.form-group.dark-theme input[type="text"],
+.form-group.dark-theme input[type="password"] {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+.theme-toggle.dark-theme label {
+    color: #fff;
+}
+
+.theme-toggle.dark-theme input[type="checkbox"] {
+    background-color: #333;
+    border: 1px solid #555;
+}
+
+.button.dark-theme {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.button.dark-theme:hover {
+    background-color: #0056b3;
+}
