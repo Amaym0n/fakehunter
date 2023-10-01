@@ -12,4 +12,4 @@ class User(Base):
     hashed_password = Column(type_=String, nullable=False)
     is_active = Column(type_=Boolean(), default=True)
     is_superuser = Column(type_=Boolean(), default=False)
-    jobs = relationship('Jobs', back_populates='owner')
+    jobs = relationship('Job', back_populates='owner')
