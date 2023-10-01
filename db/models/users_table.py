@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 from db.base_class import Base
 
 
-class Users(Base):
+class User(Base):
     """ Model for Jobs table """
     id = Column(type_=Integer, primary_key=True, index=True)
     username = Column(type_=String, unique=True, nullable=False)
