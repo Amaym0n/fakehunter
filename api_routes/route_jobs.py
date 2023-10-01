@@ -8,7 +8,7 @@ from db import get_db, Jobs
 from db.repository.jobs import create_new_job, retrieve_job_by_id, delete_job_by_id
 from schemas.jobs_schema import JobCreate
 
-jobs_router = APIRouter()
+jobs_router = APIRouter(tags=['job'])
 
 
 @jobs_router.post(path='/job/', status_code=HTTPStatus.CREATED)

@@ -25,3 +25,8 @@ async def delete_user(user_id: int, db: Session) -> int:
     count_deleted_rows = db.query(Users).filter(Users.id == user_id).delete()
     db.commit()
     return count_deleted_rows
+
+
+async def retrieve_user_password(user_email: EmailStr, db: Session) -> str:
+    password = db.query(Users.hashed_password).filter(Users.email == user_email).one()[0]
+    return password

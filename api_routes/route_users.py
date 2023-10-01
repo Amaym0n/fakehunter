@@ -8,7 +8,7 @@ from db import get_db, Users
 from db.repository.users import create_new_user, retrieve_user, delete_user
 from schemas.users_schema import UsersCreate, ShowUser
 
-users_router = APIRouter()
+users_router = APIRouter(tags=['user'])
 
 
 @users_router.post(path='/user/', response_model=ShowUser, status_code=HTTPStatus.CREATED)
@@ -22,6 +22,7 @@ async def retrieve_user_by_email(user_email: EmailStr, db: Session = Depends(dep
     if retrieved_user is None:
         raise HTTPException(status_code=HTTPStatus.NOT_FOUND,
                             detail=f'User with email {user_email} does not exist')
+    return retrieved_user
 
 
 @users_router.delete(path='/user/{user_id}', status_code=HTTPStatus.NO_CONTENT)
